@@ -1,0 +1,80 @@
+Esse erro ocorre porque seu repositório local está usando o nome de branch **`master`**, mas você está tentando fazer push para uma branch chamada **`main`** (que é o padrão atual do GitHub). Vamos resolver isso!
+
+---
+
+### **Solução Passo a Passo**
+
+#### **1. Verifique as branches existentes no seu repositório local**
+Execute no terminal:
+```bash
+git branch
+```
+- Se aparecer `* master`, significa que sua branch principal se chama **`master`** (antigo padrão do Git).  
+- Se aparecer `* main`, então o problema é outro (pule para o passo 3).
+
+---
+
+#### **2. Renomeie a branch `master` para `main` (se necessário)**
+Se sua branch principal ainda se chama `master`, vamos atualizá-la para `main`:
+```bash
+git branch -M main  # Renomeia a branch 'master' para 'main'
+```
+
+---
+
+#### **3. Configure o upstream (vinculação com o GitHub)**
+Agora faça o push corretamente:
+```bash
+git push -u origin main
+```
+- O `-u` faz com que a branch local `main` "aponte" para a branch remota `origin/main`.
+
+---
+
+#### **Se ainda não funcionar...**
+##### **(A) Seu repositório GitHub está vazio?**
+- Se você **acabou de criar o repositório no GitHub**, pode ser que não tenha uma branch `main` lá ainda.  
+- Execute:
+  ```bash
+  git push -u origin main
+  ```
+  (Isso criará a branch `main` remotamente.)
+
+##### **(B) Seu repositório GitHub já tem commits?**
+- Se alguém já fez commits no GitHub, faça primeiro um `git pull`:
+  ```bash
+  git pull origin main --allow-unrelated-histories
+  ```
+
+---
+
+### **Resumo dos Comandos**
+1. **Renomear branch** (se necessário):
+   ```bash
+   git branch -M main
+   ```
+2. **Fazer push corretamente**:
+   ```bash
+   git push -u origin main
+   ```
+
+---
+
+### **Por que isso acontece?**
+- Antigamente, o Git usava `master` como branch padrão, mas o GitHub mudou para `main` por questões de inclusividade.  
+- Se seu Git é mais antigo, ele ainda cria branches `master` por padrão.
+
+---
+
+### **Dica para o Futuro**
+Sempre verifique:
+- O nome da branch local (`git branch`).  
+- O nome da branch remota (no GitHub).  
+
+Se os nomes não baterem, você pode:
+- Renomear a branch local (`git branch -M novo-nome`).  
+- Ou fazer push para a branch correta (`git push origin nome-da-branch`).
+
+---
+
+Teste agora e me diz se funcionou! Se ainda der erro, me avise que ajudo a ajustar. 😊
