@@ -1,16 +1,17 @@
 :root {
-    /* Nova Paleta Vibrante (sem tons escuros) */
-    --fundo: #fff5e6;               /* Branco amarelado claro (fundo suave) */
-    --container: #ffffff;           /* Branco puro para containers */
+    /* Paleta Quente - Laranja/Vermelho/Amarelo */
+    --fundo: #ffb347;               /* Laranja médio (cor principal do body) */
+    --container: #ffddb3;           /* Laranja claro para o container */
     --laranja: #ff8c00;             /* Laranja vibrante */
-    --laranja-claro: #ffb347;       /* Laranja pastel */
-    --amarelo: #ffd700;             /* Amarelo dourado */
-    --vermelho: #ff6b6b;            /* Vermelho suave */
-    --vermelho-hover: #ff5252;      /* Vermelho mais intenso */
-    --texto: #333333;               /* Texto escuro para contraste */
-    --texto-secundario: #666666;
-    --sombra-box: 0 4px 12px rgba(255, 140, 0, 0.1);
-    --sombra-botao: 0 4px 8px rgba(255, 107, 107, 0.3);
+    --laranja-claro: #ffaa5e;       /* Laranja pastel */
+    --amarelo: #ffcc00;             /* Amarelo ouro */
+    --vermelho: #ff5e5e;            /* Vermelho vivo */
+    --vermelho-hover: #ff3a3a;      /* Vermelho intenso no hover */
+    --texto: #5a3a1a;               /* Marrom escuro para contraste */
+    --texto-secundario: #8c5c2b;    /* Marrom mais claro */
+    --sombra-box: 0 8px 24px rgba(255, 140, 0, 0.3);
+    --sombra-botao: 0 4px 12px rgba(255, 94, 0, 0.4);
+    --borda: rgba(255, 140, 0, 0.5); /* Borda laranja semi-transparente */
 }
 
 /* Reset e Base */
@@ -23,7 +24,7 @@ body, h1, p, form, input, button, a {
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     color: var(--texto);
-    background-color: var(--fundo); /* Fundo claro amarelado */
+    background-color: var(--fundo); /* Laranja médio (#ffb347) */
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -40,14 +41,14 @@ header {
     border-radius: 12px;
     box-shadow: var(--sombra-box);
     text-align: center;
-    border: 1px solid rgba(255, 140, 0, 0.2); /* Borda laranja sutil */
+    border: 1px solid var(--borda);
 }
 
 /* Tipografia */
 h1 {
     margin-bottom: 1rem;
     font-size: 2rem;
-    color: var(--laranja); /* Título em laranja */
+    color: var(--laranja); /* Título em laranja vibrante */
 }
 
 span {
@@ -62,7 +63,7 @@ input {
     width: 100%;
     padding: 1rem;
     margin-bottom: 1rem;
-    border: 1px solid rgba(255, 140, 0, 0.3); /* Borda laranja clara */
+    border: 1px solid var(--borda);
     border-radius: 6px;
     background-color: rgba(255, 255, 255, 0.9);
     color: var(--texto);
@@ -71,11 +72,11 @@ input {
 }
 
 input::placeholder {
-    color: rgba(255, 140, 0, 0.5); /* Placeholder laranja */
+    color: rgba(255, 140, 0, 0.7); /* Placeholder laranja */
 }
 
 input:focus, input:focus-visible {
-    outline: 2px solid var(--laranja-claro);
+    outline: 2px solid var(--laranja);
     background-color: rgba(255, 255, 255, 1);
 }
 
@@ -109,7 +110,7 @@ a {
 }
 
 a:hover {
-    color: var(--vermelho);
+    color: var(--vermelho-hover);
     text-decoration: underline;
 }
 
@@ -118,4 +119,22 @@ a:hover {
     header {
         padding: 2rem 1.5rem;
     }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    button, input {
+        padding: 0.8rem;
+    }
+}
+
+/* Efeitos Especiais */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+    animation: fadeIn 0.5s ease-out;
 }
