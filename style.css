@@ -1,21 +1,12 @@
 :root {
-    /* Paleta Quente - Laranja/Vermelho/Amarelo */
-    --fundo: #ffb347;               /* Laranja médio (cor principal do body) */
-    --container: #ffddb3;           /* Laranja claro para o container */
-    --laranja: #ff8c00;             /* Laranja vibrante */
-    --laranja-claro: #ffaa5e;       /* Laranja pastel */
-    --amarelo: #ffcc00;             /* Amarelo ouro */
-    --vermelho: #ff5e5e;            /* Vermelho vivo */
-    --vermelho-hover: #ff3a3a;      /* Vermelho intenso no hover */
-    --texto: #5a3a1a;               /* Marrom escuro para contraste */
-    --texto-secundario: #8c5c2b;    /* Marrom mais claro */
-    --sombra-box: 0 8px 24px rgba(255, 140, 0, 0.3);
-    --sombra-botao: 0 4px 12px rgba(255, 94, 0, 0.4);
-    --borda: rgba(255, 140, 0, 0.5); /* Borda laranja semi-transparente */
+    --roxo-escuro: #231134;
+    --roxo-claro: #331c48;
+    --azul-claro: #94abd2;
+    --rosa-hover: #ed3662;
+    --branco: #ffffff;
 }
 
-/* Reset e Base */
-body, h1, p, form, input, button, a {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -23,70 +14,75 @@ body, h1, p, form, input, button, a {
 
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    color: var(--texto);
-    background-color: var(--fundo); /* Laranja médio (#ffb347) */
+    /* Mais moderna */
+    color: var(--branco);
+    background-color: var(--roxo-escuro);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    /* Espaço em mobile */
 }
 
-/* Container Principal */
 header {
-    background-color: var(--container);
+    background-color: var(--roxo-claro);
     width: 100%;
     max-width: 500px;
+    /* Largura máxima fixa */
     padding: 3rem 2rem;
+    /* Espaçamento interno */
     border-radius: 12px;
-    box-shadow: var(--sombra-box);
+    /* Cantos arredondados */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    /* Sombra suave */
     text-align: center;
-    border: 1px solid var(--borda);
 }
 
-/* Tipografia */
 h1 {
     margin-bottom: 1rem;
     font-size: 2rem;
-    color: var(--laranja); /* Título em laranja vibrante */
 }
 
 span {
     display: block;
     font-weight: 300;
     margin-bottom: 2rem;
-    color: var(--texto-secundario);
+    color: rgba(255, 255, 255, 0.8);
+    /* Texto mais suave */
 }
 
-/* Formulário */
+form {
+    width: 100%;
+}
+
 input {
     width: 100%;
+    /* Ocupa 100% do form */
     padding: 1rem;
     margin-bottom: 1rem;
-    border: 1px solid var(--borda);
+    border: none;
     border-radius: 6px;
-    background-color: rgba(255, 255, 255, 0.9);
-    color: var(--texto);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--branco);
     font-size: 1rem;
-    transition: all 0.3s ease;
 }
 
 input::placeholder {
-    color: rgba(255, 140, 0, 0.7); /* Placeholder laranja */
+    color: rgba(255, 255, 255, 0.5);
 }
 
-input:focus, input:focus-visible {
-    outline: 2px solid var(--laranja);
-    background-color: rgba(255, 255, 255, 1);
+input:focus {
+    outline: 2px solid var(--azul-claro);
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Botão */
 button {
     width: 100%;
     padding: 1rem;
     margin: 1rem 0 2rem 0;
-    background: linear-gradient(to right, var(--laranja), var(--amarelo));
-    color: white;
+    background-color: var(--azul-claro);
+    color: var(--branco);
     font-weight: 600;
     border: none;
     border-radius: 6px;
@@ -97,44 +93,29 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(to right, var(--vermelho), var(--laranja));
+    background-color: var(--rosa-hover);
     transform: translateY(-2px);
-    box-shadow: var(--sombra-botao);
+    /* Efeito de levitar */
 }
 
-/* Links */
 a {
-    color: var(--laranja);
+    color: var(--azul-claro);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: color 0.3s;
 }
 
 a:hover {
-    color: var(--vermelho-hover);
+    color: var(--rosa-hover);
     text-decoration: underline;
 }
 
-/* Responsivo */
 @media (max-width: 600px) {
     header {
         padding: 2rem 1.5rem;
+        border-radius: 0;
     }
 
     h1 {
         font-size: 1.5rem;
     }
-
-    button, input {
-        padding: 0.8rem;
-    }
-}
-
-/* Efeitos Especiais */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-header {
-    animation: fadeIn 0.5s ease-out;
-}
+} 
